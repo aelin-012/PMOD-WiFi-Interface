@@ -1,0 +1,35 @@
+{D:/OneDrive - Amrita Vishwa Vidyapeetham/SEM 6 Private/19ECE383 LAB/Project/_wifi_interface_.vhd} {1 {vcom -work work -2002 -explicit -stats=none {D:/OneDrive - Amrita Vishwa Vidyapeetham/SEM 6 Private/19ECE383 LAB/Project/_wifi_interface_.vhd}
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity WiFi_Interface
+-- Compiling architecture Behavioral of WiFi_Interface
+
+} {} {}} {D:/OneDrive - Amrita Vishwa Vidyapeetham/SEM 6 Private/19ECE383 LAB/Project/_testbench_.vhd} {1 {vcom -work work -2002 -explicit -stats=none {D:/OneDrive - Amrita Vishwa Vidyapeetham/SEM 6 Private/19ECE383 LAB/Project/_testbench_.vhd}
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity Top_Module_TB
+-- Compiling architecture Behavioral of Top_Module_TB
+
+} {} {}} {D:/OneDrive - Amrita Vishwa Vidyapeetham/SEM 6 Private/19ECE383 LAB/Project/_uart_interface_.vhd} {1 {vcom -work work -2002 -explicit -stats=none {D:/OneDrive - Amrita Vishwa Vidyapeetham/SEM 6 Private/19ECE383 LAB/Project/_uart_interface_.vhd}
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity UART
+-- Compiling architecture Behavioral of UART
+
+} {} {}} {D:/OneDrive - Amrita Vishwa Vidyapeetham/SEM 6 Private/19ECE383 LAB/Project/_topmodule_.vhd} {1 {vcom -work work -2002 -explicit -stats=none {D:/OneDrive - Amrita Vishwa Vidyapeetham/SEM 6 Private/19ECE383 LAB/Project/_topmodule_.vhd}
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity Top_Module
+-- Compiling architecture Behavioral of Top_Module
+
+} {} {}}

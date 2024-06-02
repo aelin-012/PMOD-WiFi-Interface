@@ -1,0 +1,80 @@
+--Top Module--
+
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+entity Top_Module is
+    Port ( 
+           clk : in STD_LOGIC;
+           reset : in STD_LOGIC;
+           wifi_rx : in STD_LOGIC_VECTOR(7 downto 0);
+           wifi_tx : out STD_LOGIC_VECTOR(7 downto 0);
+           wifi_ready : out STD_LOGIC;
+           uart_rx : in STD_LOGIC;
+           uart_tx : out STD_LOGIC;
+           uart_rx_data : out STD_LOGIC_VECTOR(7 downto 0);
+           uart_rx_ready : out STD_LOGIC;
+           uart_tx_ready : in STD_LOGIC -- Removed uart_tx_data port from here
+         );
+end Top_Module;
+
+architecture Behavioral of Top_Module is
+    -- Instantiate WiFi_Interface module
+    component WiFi_Interface
+        Port ( 
+           clk : in STD_LOGIC;
+           reset : in STD_LOGIC;
+           wifi_rx : in STD_LOGIC_VECTOR(7 downto 0);
+           wifi_tx : out STD_LOGIC_VECTOR(7 downto 0);
+           wifi_ready : out STD_LOGIC
+         );
+    end component;
+
+    -- Instantiate UART module
+    component UART
+        Port (
+            clk : in STD_LOGIC;
+            reset : in STD_LOGIC;
+            rx : in STD_LOGIC;
+            tx : out STD_LOGIC;
+            rx_data : out STD_LOGIC_VECTOR(7 downto 0);
+            rx_ready : out STD_LOGIC;
+            tx_data : in STD_LOGIC_VECTOR(7 downto 0);
+            tx_ready : in STD_LOGIC
+        );
+    end component;
+
+    -- Signals for internal connections
+    signal uart_rx_data_int : std_logic_vector(7 downto 0);
+    signal uart_rx_ready_int : std_logic;
+
+begin
+    -- Instantiate WiFi_Interface module
+    wifi_interface_inst: WiFi_Interface
+        port map (
+            clk => clk,
+            reset => reset,
+            wifi_rx => wifi_rx,
+            wifi_tx => wifi_tx,
+            wifi_ready => wifi_ready
+        );
+
+    -- Instantiate UART module
+    uart_inst: UART
+        port map (
+            clk => clk,
+            reset => reset,
+            rx => uart_rx,
+            tx => uart_tx,
+            rx_data => uart_rx_data_int,
+            rx_ready => uart_rx_ready_int,
+            tx_data => (others => '0'), -- Added default value for tx_data
+            tx_ready => uart_tx_ready -- Removed uart_tx_data port here
+        );
+
+    -- Output signals from UART module
+    uart_rx_data <= uart_rx_data_int;
+    uart_rx_ready <= uart_rx_ready_int;
+
+end Behavioral;
+
