@@ -1,0 +1,50 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.STD_LOGIC_ARITH.ALL;
+use IEEE.STD_LOGIC_UNSIGNED.ALL;
+
+entity WiFi_Interface is
+    Port ( 
+           clk : in STD_LOGIC;
+           reset : in STD_LOGIC;
+           wifi_rx : in STD_LOGIC_VECTOR(7 downto 0);
+           wifi_tx : out STD_LOGIC_VECTOR(7 downto 0);
+           wifi_ready : out STD_LOGIC
+         );
+end WiFi_Interface;
+
+architecture Behavioral of WiFi_Interface is
+    -- Define signals for internal communication with WiFi module
+    signal wifi_data_in : std_logic_vector(7 downto 0);
+    signal wifi_data_out : std_logic_vector(7 downto 0);
+    signal wifi_ready_sig : std_logic := '0'; -- Indicates if WiFi module is ready
+
+begin
+
+    -- WiFi module control and data exchange process
+    process(clk, reset)
+    begin
+        if reset = '1' then
+            -- Reset state
+            wifi_data_out <= (others => '0');
+            wifi_ready_sig <= '0';
+        elsif rising_edge(clk) then
+            -- Communication with WiFi module
+            -- Placeholder for communication logic
+            -- Example: Read data from wifi_rx and write data to wifi_tx
+
+            -- Placeholder: Sample communication logic
+            -- In this example, data is echoed back to the WiFi module
+            -- In a real scenario, replace this with the actual communication protocol with the PMOD WiFi module
+            wifi_data_out <= wifi_rx; -- Echo received data
+            -- Set ready signal once communication is done
+            -- For a real implementation, this might involve checking status signals from the WiFi module
+            wifi_ready_sig <= '1';
+        end if;
+    end process;
+
+    -- Assign internal signals to ports
+    wifi_tx <= wifi_data_out;
+    wifi_ready <= wifi_ready_sig;
+
+end Behavioral;
